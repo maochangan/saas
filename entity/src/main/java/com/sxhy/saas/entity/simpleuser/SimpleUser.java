@@ -1,6 +1,7 @@
 package com.sxhy.saas.entity.simpleuser;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Entity
@@ -12,6 +13,7 @@ public class SimpleUser {
     @Column(name = "s_id")
     private Integer sId;
 
+    @NotNull(message = "不可为空")
     @Column(name = "s_open_id")
     private String sOpenId;
 

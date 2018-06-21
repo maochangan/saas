@@ -1,4 +1,4 @@
-package com.sxhy.saas.companyarmgt;
+package com.sxhy.saas.armgt;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -25,7 +25,6 @@ import java.util.*;
 @RestController
 @RequestMapping(value = "")
 public class ArManagement {
-
 
 
     Logger logger = LoggerFactory.getLogger(this.getClass());

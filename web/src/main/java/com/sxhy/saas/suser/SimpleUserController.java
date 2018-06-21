@@ -12,12 +12,15 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.io.IOException;
 
 @CrossOrigin(origins = "*" , maxAge = 3600)
@@ -29,6 +32,24 @@ public class SimpleUserController {
 
     @Autowired
     private SUserService sUserService;
+
+
+
+
+    @GetMapping(value = "test")
+    public void test(@ModelAttribute("user") @Valid SimpleUser user , BindingResult result){
+        System.out.println(user.getsNickName());
+        if (result.hasErrors()) {
+            for (ObjectError e: result.getAllErrors()) {
+                System.out.println(e.getDefaultMessage());
+            }
+        }
+        sUserService.testSer();
+
+
+    }
+
+
 
 
     @GetMapping(value = "wxlogin")

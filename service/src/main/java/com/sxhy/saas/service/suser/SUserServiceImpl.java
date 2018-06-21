@@ -34,4 +34,16 @@ public class SUserServiceImpl implements SUserService {
 
         return false;
     }
+
+    @Override
+    public void testSer() {
+        SimpleUser simpleUser = new SimpleUser();
+        simpleUser.setsNickName("test");
+
+        Example<SimpleUser> example = Example.of(simpleUser);
+        Optional<SimpleUser> one = simpleUserResJpa.findOne(example);
+        System.out.println(one.get().getsId());
+
+
+    }
 }
